@@ -6,3 +6,4 @@ Here you'll find a screenshots for this project output![Screenshot (69)](https:/
 ![Screenshot (71)](https://github.com/Shadabbbb/Functional-Testing/assets/115717561/f9d243d4-2380-4317-9330-006ae5f22a47)
 ![Screenshot (72)](https://github.com/Shadabbbb/Functional-Testing/assets/115717561/cf52f646-bda6-4690-8230-5a8ee0a7ee99)
 ![Screenshot (73)](https://github.com/Shadabbbb/Functional-Testing/assets/115717561/5744fb67-eb84-4ce9-869d-3e062be2da68)
+sorry for video covinience. due to large size of video clip, unable to upload

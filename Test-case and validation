@@ -1,0 +1,69 @@
+#--importing relevent modules 
+import os
+import time
+from selenium import webdriver
+
+
+#--login declaration
+def login(driver, url, username, password):
+    driver.get(url)
+    driver.find_element_by_id("email").send_keys(username)
+    driver.find_element_by_id("password").send_keys(password)
+    driver.find_element_by_xpath("//button[contains(text(), 'Login')]").click()
+
+
+#--uplaoding file as (demo-data.xlsx)
+def upload_file(driver, file_path):
+    driver.find_element_by_id("demo-data.xlsx").send_keys(file_path)
+    time.sleep(5)  # Add a delay to ensure file upload completes
+
+
+#--validation checks
+def perform_validations(driver):
+    # Add validation checks here
+    pass
+
+
+#-- final screenshots
+def take_screenshot(driver, output_folder):
+    screenshot_path = os.path.join(output_folder, "final_output.png")
+    driver.save_screenshot(screenshot_path)
+    print(f"Screenshot taken: {screenshot_path}")
+
+
+#--Main function declaration
+def main():
+    url = "https://demo.dealsdray.com/"
+    username = "prexo.mis@dealsdray.com"
+    password = "prexo.mis@dealsdray.com"
+    xls_file_path = "demo-data.xlsx"
+    output_folder = "output"
+    os.makedirs(output_folder, exist_ok=True)
+
+    #--initializing webdiver as chrome.
+    driver = webdriver.Chrome()
+
+    try:        
+        login(driver, url, username, password)
+        time.sleep(5)
+
+        driver.get("https://demo.dealsdray.com/upload-file")
+
+        #--uplaoding file
+        upload_file(driver, xls_file_path)
+
+        #--validation
+        perform_validations(driver)
+
+        #--scrrenshot snippet
+        take_screenshot(driver, output_folder)
+
+        #--time delay
+        time.sleep(5)
+    finally:
+        #--browser closing
+        driver.quit()
+
+
+if __name__ == "__main__":
+    main()
